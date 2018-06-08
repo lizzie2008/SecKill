@@ -12,7 +12,7 @@ import org.springframework.test.web.servlet.result.MockMvcResultHandlers;
 import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 
-import cn.lancel0t.seckill.controller.HelloWorldController;
+import cn.lancel0t.seckill.controller.SampleWorldController;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
@@ -21,7 +21,7 @@ public class HelloWorldControlerTests {
 
 	@Before
 	public void setUp() throws Exception {
-		mvc = MockMvcBuilders.standaloneSetup(new HelloWorldController()).build();
+		mvc = MockMvcBuilders.standaloneSetup(new SampleWorldController()).build();
 	}
 
 	@Test
