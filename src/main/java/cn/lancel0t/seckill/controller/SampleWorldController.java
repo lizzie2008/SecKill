@@ -1,5 +1,7 @@
 package cn.lancel0t.seckill.controller;
 
+import java.util.Random;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -41,9 +43,24 @@ public class SampleWorldController {
 		return "hello";
 	}
 
-	@RequestMapping("/db/get")
+	@RequestMapping("/getUserById")
 	@ResponseBody
-	public Result<User> dbGet() {
+	public Result<User> getUserById() {
 		return Result.success(userService.getById(1));
+	}
+
+	@RequestMapping("/addUser")
+	@ResponseBody
+	public Result<Integer> addUser() {
+		User user = new User();
+		user.setId(1);
+		user.setName("name" + new Random().nextInt(100));
+		return Result.success(userService.addUser(user));
+	}
+
+	@RequestMapping("/transaction")
+	@ResponseBody
+	public Result<Boolean> transaction() {
+		return Result.success(userService.transaction());
 	}
 }
